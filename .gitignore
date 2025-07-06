@@ -1,0 +1,10 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+./.env
+./learned-grammar-464612-q7-9d60f27ab3ae.json
