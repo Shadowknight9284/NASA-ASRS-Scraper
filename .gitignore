@@ -8,3 +8,8 @@ node_modules/
 
 ./.env
 ./learned-grammar-464612-q7-9d60f27ab3ae.json
+
+.env.local
+.env
+collinsaerospace-474019-452da9845818.json
+
