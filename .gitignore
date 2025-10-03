@@ -1,4 +1,3 @@
-
 # Playwright
 node_modules/
 /test-results/
@@ -6,10 +5,42 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 
-./.env
-./learned-grammar-464612-q7-9d60f27ab3ae.json
-
-.env.local
+# Environment files
 .env
-collinsaerospace-474019-452da9845818.json
+.env.local
 
+# Google Service Account Keys
+*.json
+service-account-key.json
+collinsaerospace-474019-452da9845818.json
+learned-grammar-464612-q7-9d60f27ab3ae.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Data files (optional - uncomment if you don't want to track data)
+# *.csv
+# *.xlsx
+# /data/
+# /downloads/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

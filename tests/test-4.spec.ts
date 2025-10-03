@@ -1,36 +1,17 @@
 // tests/asrs-to-drive.spec.ts
 import { test, expect, chromium } from '@playwright/test';
-import { google } from 'googleapis';
 import fs   from 'fs';
 import path from 'path';
 import 'dotenv/config';        
 
-// …now you can do:
-const keyFile  = process.env.GDRIVE_KEYFILE;
-const folderId = process.env.GDRIVE_FOLDER_ID;
-
-
-/* ───────────────────────── Google Drive init ───────────────────────── */
-
-const KEY_FILE  = process.env.GDRIVE_KEYFILE ?? '';
-const FOLDER_ID = process.env.GDRIVE_FOLDER_ID ?? '';
-
-if (!KEY_FILE || !FOLDER_ID) {
-  throw new Error('Set GDRIVE_KEYFILE and GDRIVE_FOLDER_ID env vars first.');
-}
-
-const auth  = new google.auth.GoogleAuth({
-  keyFile: KEY_FILE,
-  scopes : ['https://www.googleapis.com/auth/drive.file']
-});
-const drive = google.drive({ version: 'v3', auth });
+/* ───────────────────────── Local Storage Only ───────────────────────── */
+// Google Drive upload disabled due to service account storage limitations
+// Files will be saved locally in the test output directory
 
 async function uploadCsv(localPath: string, fileName: string) {
-  await drive.files.create({
-    requestBody: { name: fileName, parents: [FOLDER_ID] },
-    media      : { mimeType: 'text/csv', body: fs.createReadStream(localPath) }
-  });
-  console.log(`⬆️  Uploaded ${fileName} to Drive`);
+  // Skip Google Drive upload due to service account limitations
+  // Files are already saved locally in the downloads folder
+  console.log(`💾  Saved ${fileName} locally (Google Drive upload skipped)`);
 }
 
 /* ───────────────────────── Playwright test ─────────────────────────── */
